@@ -2,6 +2,7 @@ library(lattice)
 library(latticeExtra)
 library(ggplot2)
 library(grid)
+library(gridExtra)
 data(diamonds)
 
 # Exercise I
@@ -38,8 +39,8 @@ hist.ggplot  <- ggplot(data=not.ideal.minus.j, aes(x=price)) + geom_histogram() 
 
 pdf("fig-vi.pdf",width=7,height=5)
 par(mar=c(2,2,0.2,0.2))
-lattice.hist
-hist.ggplot
-#grid.arrange(lattice.hist,hist.ggplot)
+#lattice.hist
+#hist.ggplot
+grid.arrange(lattice.hist,hist.ggplot,ncol=2)
 invisible(dev.off())
 embedFonts("fig-v.pdf",options="-DPDFSETTINGS=/prepress")
